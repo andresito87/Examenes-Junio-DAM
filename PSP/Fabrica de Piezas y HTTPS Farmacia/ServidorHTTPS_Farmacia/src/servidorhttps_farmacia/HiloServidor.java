@@ -60,17 +60,6 @@ public class HiloServidor implements Runnable {
                             pw.println();
                             pw.println(new String(htmlBytes, StandardCharsets.UTF_8));
                         }
-                        case "/rellena-stock" -> {
-                            almacen.guardar(10);
-                            String htmlFinal = Paginas.HTML_STOCK_REPUESTO;
-                            // Calculamos la longitud de bytes en UTF-8
-                            byte[] htmlBytes = htmlFinal.getBytes(StandardCharsets.UTF_8);
-                            // Enviamos la respuesta HTTP
-                            pw.println(Mensajes.LINEA_INICIAL_OK);
-                            pw.println(Paginas.PRIMERA_CABECERA);
-                            pw.println();
-                            pw.println(new String(htmlBytes, StandardCharsets.UTF_8));
-                        }
                         default -> {
                             html = Paginas.HTML_NO_ENCONTRADO;
                             pw.println(Mensajes.LINEA_INICIAL_NOT_FOUND);
