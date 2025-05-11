@@ -1,0 +1,23 @@
+Orientaciones para el examen.
+
+Las preguntas son del temario, si hay alguna pregunta tipo test de la parte práctica será de cosas que obligatoriamente habéis tenido que usar si habéis hecho las tareas, y serán sobre la versión Odoo Community 16 que hemos trabajado durante el curso.
+
+Cosas que pueden caer si hay alguna pregunta tipo test práctica:
+
+Forma de acceso al ERP
+Proceso de instalación del ERP en Windows
+Pasos en la instalación de un módulo visto en las tareas
+Modo desarrollador
+Acceso al Modo superusuario
+Opciones del archivo de configuración
+Funciones de los módulos
+Información sobre conexión con la base de datos (pgAdmin, PostgreSQL)
+Comandos utilizados en PostgreSQL para listar bases las bases de datos existentes, para conectarnos con una base de datos, para mostrar las tablas, para mostrar la descripción de una tabla como son los campos que contiene, etc.
+Parámetros del fichero de configuración de Odoo (odoo.conf)
+Estructura de archivos de un módulo en Odoo
+Para qué sirve cada archivo dentro de la estructura
+Saber identificar el contenido de los archivos dentro del módulo, es decir, si te encuentras con código XML, saber que es la vista o si te encuentras con código Python saber que es el modelo.
+Preguntas sobre lenguaje Python.
+Tener en cuenta que caen bastantes preguntas de la Unidad 04 y en concreto de Python y éstas pueden ser de cómo se escriben los comentarios en el lenguaje Python, saber identificar errores de sintaxis en código Python, cuáles son los tipos básicos en Python, cuáles son las características del lenguaje Python, los distintos operadores que utiliza el lenguaje y saber distinguir cuáles son, qué hace el siguiente código, etc.
+
+También por ejemplo, dado el siguiente trozo de código, indicar lo que se muestra por pantalla, indicar cuál de las sentencias no es sintácticamente correcta, o en un código Python saber cuál es la sentencia mal escrita, etc.

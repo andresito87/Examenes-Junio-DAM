@@ -1,0 +1,3 @@
+Paracetamol: 6
+Ibuprofeno: 7
+Vitamina C: 8

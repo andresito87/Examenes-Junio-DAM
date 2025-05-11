@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "2795ff4b-9aa6-4725-b66f-6943e3ad0e50",
+		"name": "Farmacia Viva PSP",
+		"description": "Conjunto de endpoints del servidor de Farmacia Viva, Ejercicio Módulo PSP en el que se construye un servidor HTTPS para gestionar la venta de medicamentos desde un navegador web.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19407551"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "No Encontrado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/noEncontrado",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						"noEncontrado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compra Paracetamol",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "producto",
+							"value": "Paracetamol",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compra Ibuprofeno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "producto",
+							"value": "Ibuprofeno",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compra Vitamina C",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "producto",
+							"value": "Vitamina_C",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compra Errónea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "producto",
+							"value": "Vitamina_C",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "no es un mumero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reseteo de Stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{URL}}:{{PUERTO}}/rellena-stock",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PUERTO}}",
+					"path": [
+						"rellena-stock"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "PUERTO",
+			"value": "8081",
+			"type": "string"
+		}
+	]
+}
