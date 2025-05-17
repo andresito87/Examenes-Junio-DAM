@@ -1,8 +1,8 @@
-package chikitowiki_servidorhttps;
+package servidorhttps_newsletter;
 
 /**
  *
- * @author andres
+ * @author ANDRÉS SAMUEL PODADERA GONZÁLEZ
  */
 public class Mensajes {
     public static final String LINEA_INICIAL_OK = "HTTP/1.1 200 OK";

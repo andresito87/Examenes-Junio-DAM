@@ -1,8 +1,8 @@
-package chikitowiki_servidorhttps;
+package servidorhttps_newsletter;
 
 /**
  *
- * @author andres
+ * @author ANDRÉS SAMUEL PODADERA GONZÁLEZ
  */
 public class Paginas {
 
@@ -12,48 +12,63 @@ public class Paginas {
 
     //Contenido home
     public static final String HTML_INDEX = """
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-          <meta charset="UTF-8">
-          <title>Servidor HTTPS Chikito Wiki</title>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-          <style>
-            html, body {
-              height: 100%;
-            }
-            .full-height {
-              min-height: 100vh;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-            }
-          </style>
-        </head>
-        <body class="has-background-light full-height">
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Servidor HTTPS Newsletter</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+      <style>
+        html, body {
+          height: 100%;
+        }
+        .full-height {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      </style>
+    </head>
+    <body class="has-background-light full-height">
 
-          <section class="section">
-            <div class="container has-text-centered">
-              <h1 class="title is-2 has-text-primary">¡Bienvenid@ a Chikito Wiki!</h1>
-              <h3 class="subtitle is-4">¡Pulsa el botón para obtener una frase!</h3>
-              <form action="/" method="POST">
-                <input type="hidden" name="frase" value="true">
-                <button class="button is-danger is-large mt-4" type="submit">
-                  ¡¡¡AL ATAQUEERRR!!!
-                </button>
-              </form>
+      <section class="section">
+        <div class="container has-text-centered">
+          <h1 class="title is-2 has-text-primary">¡Suscríbete a la newsletter PSP!</h1>
+          <h3 class="subtitle is-4">Por favor, ingresa tu usuario y correo electrónico</h3>
+          <form action="/" method="POST" class="box" style="max-width: 400px; margin: auto;">
+            <div class="field">
+              <label class="label">Nombre</label>
+              <div class="control">
+                <input class="input" type="text" name="usuario" placeholder="Tu usuario" required>
+              </div>
             </div>
-          </section>
 
-          <footer class="footer has-background-dark has-text-light py-2">
-            <div class="content has-text-centered">
-              <p>© 2025 Servidor ChikitoWiki | Andrés Samuel Podadera González | Módulo PSP</p>
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input" type="email" name="email" placeholder="email@example.com" required>
+              </div>
             </div>
-          </footer>
 
-        </body>
-        </html>
-        """;
+            <div class="field">
+              <div class="control">
+                <button class="button is-primary is-fullwidth" type="submit">Confirmar suscripción</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer has-background-dark has-text-light py-2">
+        <div class="content has-text-centered">
+          <p>© 2025 Servidor Newsletter | Andrés Samuel Podadera González | Módulo PSP</p>
+        </div>
+      </footer>
+
+    </body>
+    </html>
+    """;
 
     //Contenido para página no encontrada
     public static final String HTML_NO_ENCONTRADO = """
@@ -92,7 +107,7 @@ public class Paginas {
 
           <footer class="footer has-background-dark has-text-light py-2">
             <div class="content has-text-centered">
-              <p>© 2025 Servidor ChikitoWiki | Andrés Samuel Podadera González | Módulo PSP</p>
+              <p>© 2025 Servidor Newsletter | Andrés Samuel Podadera González | Módulo PSP</p>
             </div>
           </footer>
 
@@ -137,7 +152,7 @@ public class Paginas {
 
           <footer class="footer has-background-dark has-text-light py-2">
             <div class="content has-text-centered">
-              <p>© 2025 Servidor ChikitoWiki | Andrés Samuel Podadera González | Módulo PSP</p>
+              <p>© 2025 Servidor Newsletter | Andrés Samuel Podadera González | Módulo PSP</p>
             </div>
           </footer>
 
@@ -145,59 +160,80 @@ public class Paginas {
         </html>
         """;
 
-    public static String generarHtmlConFrase(String frase) {
-        return """
-       <!DOCTYPE html>
-       <html lang="es">
-       <head>
-         <meta charset="UTF-8">
-         <title>Servidor HTTPS Chikito Wiki</title>
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-         <style>
-           html, body {
-             height: 100%;
-           }
-           .full-height {
-             min-height: 100vh;
-             display: flex;
-             flex-direction: column;
-             justify-content: space-between;
-           }
-           .custom-shadow {
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-           }
-         </style>
-       </head>
-       <body class="has-background-light full-height">
-   
-         <section class="section">
-           <div class="container has-text-centered">
-             <h1 class="title is-2 has-text-primary">¡Bienvenid@ a Chikito Wiki!</h1>
-             <h3 class="subtitle is-4">¡Pulsa el botón para obtener una frase!</h3>
-             <form action="/" method="POST">
-               <input type="hidden" name="frase" value="true">
-               <button class="button is-danger is-large mt-4" type="submit">
-                 ¡¡¡AL ATAQUEERRR!!!
-               </button>
-             </form>
-           </div>
-         </section>
-   
-       <section class="section">
-         <div class="container">
-           <div class="notification is-info is-light has-text-centered custom-shadow">
-             <p class="is-size-3 has-text-weight-semibold">"""
-                + frase
-                + "</p>"
-                + "</div>"
-                + "</div>"
-                + "</section>"
-                + "<footer class=\"footer has-background-dark has-text-light py-2\">"
-                + "<div class=\"content has-text-centered\">"
-                + "<p>© 2025 Servidor ChikitoWiki | Andrés Samuel Podadera González | Módulo PSP</p>"
-                + "</footer>"
-                + "</body>"
-                + "</html>";
+    public static String generarHtmlConMensaje(String frase) {
+        // Reemplaza saltos de línea por etiquetas <br>
+        String fraseFormateada = frase.replace("\n", "<br>");
+
+        return String.format("""
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+          <meta charset="UTF-8">
+          <title>Servidor HTTPS Newsletter</title>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+          <style>
+            html, body {
+              height: 100%%;
+            }
+            .full-height {
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+            .custom-shadow {
+              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            }
+          </style>
+        </head>
+        <body class="has-background-light full-height">
+
+          <section class="section">
+            <div class="container has-text-centered">
+              <h1 class="title is-2 has-text-primary">¡Suscríbete a la newsletter PSP!</h1>
+              <h3 class="subtitle is-4">Por favor, ingresa tu usuario y correo electrónico</h3>
+              <form action="/" method="POST" class="box" style="max-width: 400px; margin: auto;">
+                <div class="field">
+                  <label class="label">Nombre</label>
+                  <div class="control">
+                    <input class="input" type="text" name="usuario" placeholder="Tu usuario" required>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control">
+                    <input class="input" type="email" name="email" placeholder="email@example.com" required>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-primary is-fullwidth" type="submit">Confirmar suscripción</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="container">
+            <h2 class="title is-4 has-text-centered has-text-primary mb-4">Suscriptores</h2>
+              <div class="notification is-info is-dark has-text-centered has-text-light custom-shadow">
+                <p class="is-size-3 has-text-weight-semibold">%s</p>
+              </div>
+            </div>
+          </section>
+
+          <footer class="footer has-background-dark has-text-light py-2">
+            <div class="content has-text-centered">
+              <p>© 2025 Servidor Newsletter | Andrés Samuel Podadera González | Módulo PSP</p>
+            </div>
+          </footer>
+
+        </body>
+        </html>
+        """, fraseFormateada);
     }
 
 }

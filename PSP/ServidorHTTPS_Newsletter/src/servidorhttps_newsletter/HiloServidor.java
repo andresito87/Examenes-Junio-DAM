@@ -1,25 +1,26 @@
-package chikitowiki_servidorhttps;
+package servidorhttps_newsletter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Level;
 
 /**
  *
- * @author andres
+ * @author ANDRÉS SAMUEL PODADERA GONZÁLEZ
  */
 public class HiloServidor implements Runnable {
 
     //Creando Almacen de usuarios e hilos escritores y lectores
-    private AlmacenFrases almacen = null;
+    private AlmacenUsuarios almacen = null;
 
     private final Socket socketCliente;
 
-    public HiloServidor(Socket sCliente, AlmacenFrases almacen) {
+    public HiloServidor(Socket sCliente, AlmacenUsuarios almacen) {
         this.socketCliente = sCliente;
         this.almacen = almacen;
     }
@@ -49,6 +50,16 @@ public class HiloServidor implements Runnable {
                     switch (peticion) {
                         case "/" -> {
                             String htmlFinal = Paginas.HTML_INDEX;
+                            byte[] htmlBytes = htmlFinal.getBytes(StandardCharsets.UTF_8);
+                            pw.println(Mensajes.LINEA_INICIAL_OK);
+                            pw.println(Paginas.PRIMERA_CABECERA);
+                            pw.println();
+                            pw.println(new String(htmlBytes, StandardCharsets.UTF_8));
+                        }
+                        case "/listado" -> {
+                            String listado = almacen.obtenerDatosUsuarios();
+                            almacen.lecturaFinalizada();
+                            String htmlFinal = Paginas.generarHtmlConMensaje(listado);
                             byte[] htmlBytes = htmlFinal.getBytes(StandardCharsets.UTF_8);
                             pw.println(Mensajes.LINEA_INICIAL_OK);
                             pw.println(Paginas.PRIMERA_CABECERA);
@@ -94,41 +105,35 @@ public class HiloServidor implements Runnable {
                     }
 
                     // Procesar la clave-valor de la petición POST
-                    if (peticion.equals("/") && body != null && body.contains("=")) {
+                    if (peticion.equals("/") && body != null && body.contains("&")) {
                         String[] parametros = body.split("&");
-                        for (String parametro : parametros) {
-                            String[] claveValor = parametro.split("=");
-                            if (claveValor.length == 2 && "frase".equals(claveValor[0]) && "true".equals(claveValor[1])) {
-                                String frase = almacen.obtenerFrase();
-                                String htmlFinal = Paginas.generarHtmlConFrase(frase);
-                                byte[] htmlBytes = htmlFinal.getBytes(StandardCharsets.UTF_8);
-                                pw.println(Mensajes.LINEA_INICIAL_OK);
-                                pw.println(Paginas.PRIMERA_CABECERA);
-                                pw.println();
-                                pw.println(new String(htmlBytes, StandardCharsets.UTF_8));
-
-                                // Guardamos el mensaje informativo en el registro
-                                 LoggerHelper.log(Level.INFO,"Petición recibida y procesa por el servidor");
-                            } else {
-                                html = Paginas.HTML_INFORMACION_INVALIDA;
-                                pw.println(Mensajes.LINEA_INICIAL_BAD_REQUEST);
-                                pw.println(Paginas.PRIMERA_CABECERA);
-                                pw.println();
-                                pw.println(html);
-
-                                // Guardamos el mensaje de error en el registro
-                                 LoggerHelper.log(Level.SEVERE,"Error al procesar la petición recibida");
-                            }
+                        String[] claveValorUsuario = parametros[0].split("=");
+                        String[] claveValorEmail = parametros[1].split("=");
+                        if (claveValorUsuario.length == 2 && "usuario".equals(claveValorUsuario[0])
+                                && claveValorEmail.length == 2 && "email".equals(claveValorEmail[0])) {
+                            String[] datosUsuario = {claveValorUsuario[1], decodificarUTF8(claveValorEmail[1])};
+                            String resultado = almacen.accesoEscribir(datosUsuario);
+                            almacen.escrituraFinalizada();
+                            String htmlFinal = Paginas.generarHtmlConMensaje(resultado);
+                            byte[] htmlBytes = htmlFinal.getBytes(StandardCharsets.UTF_8);
+                            pw.println(Mensajes.LINEA_INICIAL_OK);
+                            pw.println(Paginas.PRIMERA_CABECERA);
+                            pw.println();
+                            pw.println(new String(htmlBytes, StandardCharsets.UTF_8));
+                        } else {
+                            html = Paginas.HTML_INFORMACION_INVALIDA;
+                            pw.println(Mensajes.LINEA_INICIAL_BAD_REQUEST);
+                            pw.println(Paginas.PRIMERA_CABECERA);
+                            pw.println();
+                            pw.println(html);
                         }
+
                     } else {
                         html = Paginas.HTML_INFORMACION_INVALIDA;
                         pw.println(Mensajes.LINEA_INICIAL_BAD_REQUEST);
                         pw.println(Paginas.PRIMERA_CABECERA);
                         pw.println();
                         pw.println(html);
-
-                        // Guardamos el mensaje de error en el registro
-                        LoggerHelper.log(Level.SEVERE,"Error al procesar la petición recibida");
                     }
                 } // Cualquier otro tipo de peticion no se encuentra disponible en el servidor 
                 else {
@@ -149,6 +154,15 @@ public class HiloServidor implements Runnable {
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
+        }
+    }
+
+    public static String decodificarUTF8(String parametro) {
+        try {
+            return URLDecoder.decode(parametro, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            System.out.println("Error al intentar decodificar el párametro recibido " + parametro);
+            return parametro; // devuelve el valor original en caso de error
         }
     }
 }
