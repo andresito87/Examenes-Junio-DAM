@@ -1,0 +1,10 @@
+<vehiculo afabricacion="2022">
+  <matricula>5555DDD</matricula>
+  <propietario>
+    <apellidos>Puertas Gomez</apellidos>
+    <nombre>Alicia</nombre>
+  </propietario>
+  <marca>Volkswagen</marca>
+  <modelo>Golf</modelo>
+  <kms>100000</kms>
+</vehiculo>

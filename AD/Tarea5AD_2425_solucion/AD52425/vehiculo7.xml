@@ -1,0 +1,10 @@
+<vehiculo afabricacion="2021">
+  <matricula>7777FFF</matricula>
+  <propietario>
+    <apellidos>Cuevas Torres</apellidos>
+    <nombre>Eduardo</nombre>
+  </propietario>
+  <marca>Audi</marca>
+  <modelo>Q5</modelo>
+  <kms>150000</kms>
+</vehiculo>

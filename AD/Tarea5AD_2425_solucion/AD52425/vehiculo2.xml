@@ -1,0 +1,10 @@
+<vehiculo afabricacion="2024">
+  <matricula>2222BBB</matricula>
+  <propietario>
+    <apellidos>Mora Garcia</apellidos>
+    <nombre>Ana</nombre>
+  </propietario>
+  <marca>Citroen</marca>
+  <modelo>C5</modelo>
+  <kms>54000</kms>
+</vehiculo>

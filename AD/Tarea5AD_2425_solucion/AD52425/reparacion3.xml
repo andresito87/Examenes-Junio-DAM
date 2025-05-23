@@ -1,0 +1,12 @@
+<entrada>
+  <matricula>3333CCC</matricula>
+  <reparacion>
+    <inicio>2024-12-20</inicio>
+    <fin>2025-01-20</fin>
+    <mecanico>
+      <nombre>Emilio</nombre>
+      <apellidos>Trujillo</apellidos>
+      <telefono>958741632</telefono>
+    </mecanico>
+  </reparacion>
+</entrada>

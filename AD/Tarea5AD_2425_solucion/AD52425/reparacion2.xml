@@ -1,0 +1,11 @@
+<entrada>
+  <matricula>2222BBB</matricula>
+  <reparacion>
+    <inicio>2025-01-01</inicio>
+    <mecanico>
+      <nombre>Lucas</nombre>
+      <apellidos>Garcia</apellidos>
+      <telefono>950456987</telefono>
+    </mecanico>
+  </reparacion>
+</entrada>

@@ -1,0 +1,124 @@
+<!--  Fichero: taller.xml  -->
+<taller>
+    <vehiculos>
+        <vehiculo afabricacion="2024">
+            <matricula>1111BBB</matricula>
+            <propietario>
+                <apellidos>Martinez Lopez</apellidos>
+                <nombre>Juan</nombre>
+            </propietario>
+            <marca>Peugeot</marca>
+            <modelo>308</modelo>
+            <kilometros>20000</kilometros>
+        </vehiculo>   
+        <vehiculo afabricacion="2024">
+            <matricula>2222BBB</matricula>
+            <propietario>
+                <apellidos>Mora Garcia</apellidos>
+                <nombre>Ana</nombre>
+            </propietario>
+            <marca>Citroen</marca>
+            <modelo>C5</modelo>
+            <kilometros>54000</kilometros>
+        </vehiculo>
+        <vehiculo afabricacion="2023">
+            <matricula>3333CCC</matricula>
+            <propietario>
+                <apellidos>Luna Molina</apellidos>
+                <nombre>Jose</nombre>
+            </propietario>
+            <marca>Lexus</marca>
+            <modelo>NX</modelo>
+            <kilometros>70000</kilometros>
+        </vehiculo>
+        <vehiculo afabricacion="2023">
+            <matricula>4444CCC</matricula>
+            <propietario>
+                <apellidos>Marin Marin</apellidos>
+                <nombre>Julio</nombre>
+            </propietario>
+            <marca>Renault</marca>
+            <modelo>Megane</modelo>
+            <kilometros>85000</kilometros>
+        </vehiculo>
+            <vehiculo afabricacion="2022">
+            <matricula>5555DDD</matricula>
+            <propietario>
+                <apellidos>Puertas Gomez</apellidos>
+                <nombre>Alicia</nombre>
+            </propietario>
+            <marca>Volkswagen</marca>
+            <modelo>Golf</modelo>
+            <kilometros>100000</kilometros>
+        </vehiculo>
+            <vehiculo afabricacion="2020">
+            <matricula>6666FFF</matricula>
+            <propietario>
+                <apellidos>Pio Ponce</apellidos>
+                <nombre>Eva</nombre>
+            </propietario>
+            <marca>BMW</marca>
+            <modelo>X3</modelo>
+            <kilometros>90000</kilometros>
+        </vehiculo>  
+            <vehiculo afabricacion="2021">
+            <matricula>7777FFF</matricula>
+            <propietario>
+                <apellidos>Cuevas Torres</apellidos>
+                <nombre>Eduardo</nombre>
+            </propietario>
+            <marca>Audi</marca>
+            <modelo>Q5</modelo>
+            <kilometros>150000</kilometros>
+        </vehiculo>    
+    </vehiculos>
+    <!--  Tabla reparaciones  -->
+    <reparaciones>
+        <entrada>
+            <matricula>2222BBB</matricula>
+            <reparacion>
+                <inicio>2024-11-02</inicio>
+                <fin>2024-12-10</fin>
+                <mecanico>
+                    <nombre>Pepito</nombre>
+                    <apellidos>Grillo</apellidos>
+                    <telefono>972987654</telefono>
+                </mecanico>
+            </reparacion>
+        </entrada>
+        <entrada>
+            <matricula>2222BBB</matricula>
+            <reparacion>
+                <inicio>2025-01-01</inicio>
+                <mecanico>
+                    <nombre>Lucas</nombre>
+                    <apellidos>Garcia</apellidos>
+                    <telefono>950456987</telefono>
+                </mecanico>
+            </reparacion>
+        </entrada>
+        <entrada>
+            <matricula>3333CCC</matricula>
+            <reparacion>
+                <inicio>2024-12-20</inicio>
+                <fin>2025-01-20</fin>
+                <mecanico>
+                    <nombre>Emilio</nombre>
+                    <apellidos>Trujillo</apellidos>
+                    <telefono>958741632</telefono>
+                </mecanico>
+            </reparacion>
+        </entrada>
+        <entrada>
+            <matricula>4444CCC</matricula>
+            <reparacion>
+                <inicio>2024-02-20</inicio>
+                <mecanico>
+                    <nombre>Lucas</nombre>
+                    <apellidos>Garcia</apellidos>
+                    <telefono>950456987</telefono>
+                </mecanico>
+            </reparacion>
+        </entrada>
+    </reparaciones>
+</taller>

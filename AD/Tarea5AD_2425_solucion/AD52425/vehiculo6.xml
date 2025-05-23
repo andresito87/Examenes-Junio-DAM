@@ -1,0 +1,10 @@
+<vehiculo afabricacion="2020">
+  <matricula>6666FFF</matricula>
+  <propietario>
+    <apellidos>Pio Ponce</apellidos>
+    <nombre>Eva</nombre>
+  </propietario>
+  <marca>BMW</marca>
+  <modelo>X3</modelo>
+  <kms>110000</kms>
+</vehiculo>

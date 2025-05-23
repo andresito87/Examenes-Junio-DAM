@@ -1,0 +1,12 @@
+<entrada>
+  <matricula>2222BBB</matricula>
+  <reparacion>
+    <inicio>2024-11-02</inicio>
+    <fin>2024-12-10</fin>
+    <mecanico>
+      <nombre>Pepito</nombre>
+      <apellidos>Grillo</apellidos>
+      <telefono>972987654</telefono>
+    </mecanico>
+  </reparacion>
+</entrada>

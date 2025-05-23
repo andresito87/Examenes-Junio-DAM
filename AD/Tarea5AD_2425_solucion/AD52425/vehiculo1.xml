@@ -1,0 +1,10 @@
+<vehiculo afabricacion="2024">
+  <matricula>1111BBB</matricula>
+  <propietario>
+    <apellidos>Martinez Lopez</apellidos>
+    <nombre>Juan</nombre>
+  </propietario>
+  <marca>Peugeot</marca>
+  <modelo>308</modelo>
+  <kms>20000</kms>
+</vehiculo>

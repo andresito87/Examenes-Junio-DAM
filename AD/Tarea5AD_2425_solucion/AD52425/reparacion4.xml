@@ -1,0 +1,11 @@
+<entrada>
+  <matricula>4444CCC</matricula>
+  <reparacion>
+    <inicio>2024-02-20</inicio>
+    <mecanico>
+      <nombre>Lucas</nombre>
+      <apellidos>Garcia</apellidos>
+      <telefono>950456987</telefono>
+    </mecanico>
+  </reparacion>
+</entrada>

@@ -106,7 +106,7 @@ public class ServidorHTTP {
                     + "Content-Type: text/html; charset=UTF-8" + "\n" //Metadatos
                     + "Content-Length: " + contenido.length() + "\n"
                     + "\n" //Línea vacía
-                    + contenido;                                                             //Cuerpo
+                    + contenido;             //Cuerpo
         }
     }
 
