@@ -1,9 +1,5 @@
 package proyectobasehotel;
 
-/**
- *
- * @author Nombre <>
- */
 public class Paginas {
 
     public static final String HTML_NO_ENCONTRADO
