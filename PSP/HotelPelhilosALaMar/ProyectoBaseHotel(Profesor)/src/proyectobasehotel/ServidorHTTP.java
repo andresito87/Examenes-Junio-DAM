@@ -29,15 +29,15 @@ class HiloServidor extends Thread {
     @Override
     public void run() {
 
-        try (BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream())); 
+        try (BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
                 PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true)) {
-            String peticion = entrada.readLine(); // Lee la primera línea de la petición HTTP.
+            String peticion = entrada.readLine(); // Lee la primera lÃ­nea de la peticiÃ³n HTTP.
             if (peticion != null && (!peticion.startsWith("GET") || !peticion.startsWith("POST"))) {
                 String ruta = peticion.split(" ")[1]; // Extrae la ruta solicitada.
                 StringBuilder cuerpo = new StringBuilder(); // Para almacenar el cuerpo de la solicitud.
                 String linea;
 
-                // Leer encabezados HTTP y determinar el tamaño del cuerpo.
+                // Leer encabezados HTTP y determinar el tamaÃ±o del cuerpo.
                 int contentLength = 0;
                 while (!(linea = entrada.readLine()).isBlank()) {
                     if (linea.startsWith("Content-Length: ")) {
@@ -56,7 +56,7 @@ class HiloServidor extends Thread {
 
                     String dia = dato1.split("=")[1];
                     int numero = Integer.parseInt(dato2.split("=")[1]);
-                    System.out.println("La nueva reserva ha sido para el " +dia+ " con " +numero+ " habitaciones.");
+                    System.out.println("La nueva reserva ha sido para el " + dia + " con " + numero + " habitaciones.");
                     GestorFichero.actualizarFichero(dia, numero);
                 }
 
