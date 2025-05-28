@@ -24,7 +24,7 @@ public class Empaquetadora implements Runnable {
 
     @Override
     public void run() {
-        while (cinta.getPiezasFabricadas() < cinta.LIMITE_PIEZAS_DIARIAS_FABRICADAS // en este caso no es necesaria porque hay 3 maquinas productoras
+        while (cinta.getPiezasFabricadas() < cinta.LIMITE_PIEZAS_DIARIAS_FABRICADAS
                 || cinta.getPiezasEnCinta() > 0) {
             try {
                 cinta.sacarPieza();

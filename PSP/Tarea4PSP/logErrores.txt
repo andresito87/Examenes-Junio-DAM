@@ -1,0 +1,2 @@
+
+2025-05-27 19:11:41 Error juego Adivina en la línea 92: El valor introducido no es correcto. Valor recibido:aaaaa
