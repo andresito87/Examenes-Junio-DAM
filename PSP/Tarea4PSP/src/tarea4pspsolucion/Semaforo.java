@@ -1,4 +1,3 @@
-
 package tarea4pspsolucion;
 
 public class Semaforo {

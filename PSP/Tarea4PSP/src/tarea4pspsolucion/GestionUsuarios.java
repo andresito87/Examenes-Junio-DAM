@@ -1,4 +1,3 @@
-
 package tarea4pspsolucion;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -13,7 +12,7 @@ public class GestionUsuarios {
 
     /**
      * Método sincronizado para comprobar si existe la dupla usuario:contraseña
-     * 
+     *
      * @param email
      * @param password
      * @return boolean
@@ -39,7 +38,7 @@ public class GestionUsuarios {
                 // Comprobamos si este usuario coincide
                 if (email.equals(partes[0])) {
                     encontrado = true; // Como no puede existir dos correos iguales, salimos del bucle después de
-                                       // comprobar la constraseña
+                    // comprobar la constraseña
                     if (BCrypt.checkpw(password, partes[1])) {
                         login = true;
                     }
@@ -54,7 +53,7 @@ public class GestionUsuarios {
 
     /**
      * Método sincronizado para escribir la dupla usuario:contraseña
-     * 
+     *
      * @param email
      * @param password
      * @return boolean

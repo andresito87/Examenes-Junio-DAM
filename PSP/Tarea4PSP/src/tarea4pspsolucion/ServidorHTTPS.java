@@ -1,4 +1,3 @@
-
 package tarea4pspsolucion;
 
 /**
@@ -24,10 +23,8 @@ import javax.net.ssl.SSLSocket;
 /**
  * Servidor HTTPS que maneja juegos interactivos.
  *
- * Rutas disponibles:
- * - /adivina: Juega a "Adivina el Número".
- * - /dados: Juega a "Lanza Dados".
- * - /ppt: Juega a "Piedra, Papel o Tijera".
+ * Rutas disponibles: - /adivina: Juega a "Adivina el Número". - /dados: Juega a
+ * "Lanza Dados". - /ppt: Juega a "Piedra, Papel o Tijera".
  */
 public class ServidorHTTPS {
 
@@ -62,8 +59,8 @@ public class ServidorHTTPS {
         SSLServerSocketFactory factory = sslContext.getServerSocketFactory();
 
         // Crea un socket servidor seguro
-        SSLServerSocket socketServidorSsl = (SSLServerSocket) factory.createServerSocket(8443);
-        System.out.println("Servidor SSL escuchando en el puerto " + 8443);
+        SSLServerSocket socketServidorSsl = (SSLServerSocket) factory.createServerSocket(8444);
+        System.out.println("Servidor SSL escuchando en el puerto " + 8444);
 
         while (true) {
             // Acepta conexiones de clientes
@@ -75,10 +72,11 @@ public class ServidorHTTPS {
     }
 
     /**
-     * Clase interna que implementa la lógica de manejar un cliente.
-     * Extiende la clase Thread y sobrescribe el método run.
+     * Clase interna que implementa la lógica de manejar un cliente. Extiende la
+     * clase Thread y sobrescribe el método run.
      */
     private static class HiloCliente extends Thread {
+
         private static final GestionPeticiones gPeticiones = new GestionPeticiones(sesiones, logger);
         private final SSLSocket cliente;
 
@@ -89,9 +87,8 @@ public class ServidorHTTPS {
         @Override
         public void run() {
             try (
-                    BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-                    PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true, StandardCharsets.UTF_8)) {
-                // Lee la primera línea de la petición HTTP.
+                    BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream())); PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true, StandardCharsets.UTF_8)) {
+                // Lee la primera lí­nea de la petición HTTP.
                 String peticion = entrada.readLine();
                 if (peticion == null || (!peticion.startsWith("GET") && !peticion.startsWith("POST"))) {
                     return; // Ignora la petición si no es GET o POST.
@@ -111,7 +108,7 @@ public class ServidorHTTPS {
 
                 int contentLength = Integer.parseInt(metadatos[1]);
 
-                System.out.println("linea: vacía");
+                System.out.println("linea: vacia");
 
                 // Leer el cuerpo si es un POST.
                 StringBuilder cuerpo = new StringBuilder(); // Para almacenar el cuerpo de la solicitud.
@@ -121,7 +118,7 @@ public class ServidorHTTPS {
                     cuerpo.append(buffer);
                 }
 
-                String respuesta; // Contendrá la respuesta generada por el servidor.
+                String respuesta; // Contendrá¡ la respuesta generada por el servidor.
 
                 if (ruta.equals("/")) {
                     respuesta = gPeticiones.construirRespuesta(200,
@@ -142,10 +139,10 @@ public class ServidorHTTPS {
                     respuesta = gPeticiones.construirRespuesta(404, Paginas.html_noEncontrado, sessionId);
                 }
 
-                salida.println(respuesta); // Envía la respuesta al cliente.
+                salida.println(respuesta); // Enví­a la respuesta al cliente.
                 cliente.close(); // Cierro conexión
             } catch (IOException e) {
-                e.printStackTrace(); // Muestra errores en la consola.
+                //e.printStackTrace(); // Muestra errores en la consola.
             }
 
         }

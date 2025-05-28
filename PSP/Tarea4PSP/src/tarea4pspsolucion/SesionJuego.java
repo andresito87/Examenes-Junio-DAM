@@ -1,4 +1,3 @@
-
 package tarea4pspsolucion;
 
 /**
@@ -8,6 +7,7 @@ package tarea4pspsolucion;
 import java.util.Random;
 
 public class SesionJuego {
+
     int intentosAdivina;
     int numeroSecreto;
     int marcadorUsuarioDados;
@@ -22,9 +22,9 @@ public class SesionJuego {
         this.numeroSecreto = new Random().nextInt(100) + 1;
         this.marcadorUsuarioDados = 0;
         this.marcadorServidorDados = 0;
-        this.rondaDados=0;
+        this.rondaDados = 0;
         this.marcadorUsuarioPPT = 0;
         this.marcadorServidorPPT = 0;
-        this.rondaPPT=0;
+        this.rondaPPT = 0;
     }
 }

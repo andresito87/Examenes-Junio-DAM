@@ -45,7 +45,7 @@ public class GestionPeticiones {
         } catch (Exception e) {
             respuestaHTML = "<p>Error procesando tu petición. Intenta de nuevo.  </p>";
             codigo = 400;
-            e.printStackTrace(); // Muestra errores en la consola.
+            //e.printStackTrace(); // Muestra errores en la consola.
         }
         return construirRespuesta(codigo, (login ? Paginas.html_index : Paginas.html_LoginRegistro(respuestaHTML)),
                 sessionId);
@@ -76,7 +76,7 @@ public class GestionPeticiones {
         } catch (Exception e) {
             respuestaHTML = "<p>Error procesando tu petición. Intenta de nuevo.  </p>";
             codigo = 400;
-            e.printStackTrace(); // Muestra errores en la consola.
+            //e.printStackTrace(); // Muestra errores en la consola.
         }
 
         return construirRespuesta(codigo, Paginas.html_LoginRegistro(respuestaHTML), sessionId);
@@ -98,12 +98,12 @@ public class GestionPeticiones {
                     sesion.intentosAdivina++;
 
                     if (numeroUsuario == sesion.numeroSecreto) {
-                        respuestaHTML = "<p>¡Felicidades! Has acertado el número " + sesion.numeroSecreto + " en "
+                        respuestaHTML = "<p>Â¡Felicidades! Has acertado el número " + sesion.numeroSecreto + " en "
                                 + sesion.intentosAdivina + " intentos.</p>";
                         sesion.numeroSecreto = 0; // Reinicia el juego.
                     } else if (sesion.intentosAdivina >= 10) {
                         respuestaHTML = "<p>No has acertado en 10 intentos. El número era " + sesion.numeroSecreto
-                                + ". Pulsa <a href='/adivina'>aquí</a> para reiniciar el juego.</p>";
+                                + ". Pulsa <a href='/adivina'>aquí­</a> para reiniciar el juego.</p>";
                         sesion.numeroSecreto = 0; // Reinicia el juego.
                     } else {
                         respuestaHTML = "<p>Intento " + sesion.intentosAdivina + ": El número es "
@@ -113,8 +113,8 @@ public class GestionPeticiones {
             } catch (Exception e) {
                 respuestaHTML = "<p>Error procesando tu número. Intenta de nuevo.  </p>";
                 codigo = 400;
-                e.printStackTrace(); // Muestra errores en la consola.
-                logger.log(Level.SEVERE, "Error juego Adivina en la línea " + e.getStackTrace()[3].getLineNumber()
+                //e.printStackTrace(); // Muestra errores en la consola.
+                logger.log(Level.SEVERE, "Error juego Adivina en la lí­nea " + e.getStackTrace()[3].getLineNumber()
                         + ": El valor introducido no es correcto. Valor recibido:" + cuerpo.split("=")[1]);
             }
             pagina = construirRespuesta(codigo, Paginas.generarHtmlAdivina(respuestaHTML), sessionId);
@@ -156,7 +156,7 @@ public class GestionPeticiones {
 
                     if (sesion.rondaDados == 5) {
                         if (sesion.marcadorUsuarioDados > sesion.marcadorServidorDados) {
-                            respuestaHTML += "<p>¡Ganaste el juego! Marcador final: " + sesion.marcadorUsuarioDados
+                            respuestaHTML += "<p>Â¡Ganaste el juego! Marcador final: " + sesion.marcadorUsuarioDados
                                     + " - " + sesion.marcadorServidorDados
                                     + ". Vuelve a pulsar el botón para jugar de nuevo.</p>     ";
                         } else {
@@ -172,8 +172,8 @@ public class GestionPeticiones {
             } catch (Exception e) {
                 respuestaHTML = "<p>Error procesando tu elección. Intenta de nuevo.</p>";
                 codigo = 400;
-                e.printStackTrace(); // Muestra errores en la consola.
-                logger.log(Level.SEVERE, "Error juego Dados en la línea " + e.getStackTrace()[3].getLineNumber()
+                //e.printStackTrace(); // Muestra errores en la consola.
+                logger.log(Level.SEVERE, "Error juego Dados en la lí­nea " + e.getStackTrace()[3].getLineNumber()
                         + ": El valor introducido no es correcto. Valor recibido:" + cuerpo.split("=")[1]);
             }
             pagina = construirRespuesta(200, Paginas.generarHtmlDados(respuestaHTML), sessionId);
@@ -186,7 +186,7 @@ public class GestionPeticiones {
 
     public String manejarPPT(String cuerpo, SesionJuego sesion, String sessionId) {
         int codigo = 200;
-        String[] opciones = { "Piedra", "Papel", "Tijeras" };
+        String[] opciones = {"Piedra", "Papel", "Tijeras"};
         String respuestaHTML = "<p>Pulsa un botón para jugar.</p>  ";
         String pagina;
 
@@ -215,7 +215,7 @@ public class GestionPeticiones {
 
                     if (sesion.rondaPPT == 5) {
                         if (sesion.marcadorUsuarioPPT > sesion.marcadorServidorPPT) {
-                            respuestaHTML += "<p>¡Ganaste el juego! Marcador final: " + sesion.marcadorUsuarioPPT
+                            respuestaHTML += "<p>Â¡Ganaste el juego! Marcador final: " + sesion.marcadorUsuarioPPT
                                     + " - " + sesion.marcadorServidorPPT
                                     + ". Vuelve a pulsar un botón para jugar de nuevo.</p>    ";
                         } else {
@@ -231,8 +231,8 @@ public class GestionPeticiones {
             } catch (Exception e) {
                 respuestaHTML = "<p>Error procesando tu elección. Intenta de nuevo.</p>  ";
                 codigo = 400;
-                e.printStackTrace(); // Muestra errores en la consola.
-                logger.log(Level.SEVERE, "Error juego PPT en la línea " + e.getStackTrace()[0].getLineNumber()
+                //e.printStackTrace(); // Muestra errores en la consola.
+                logger.log(Level.SEVERE, "Error juego PPT en la lí­nea " + e.getStackTrace()[0].getLineNumber()
                         + ": El valor introducido no es correcto. Valor recibido:");
             }
             pagina = construirRespuesta(codigo, Paginas.generarHtmlPpt(respuestaHTML), sessionId);
@@ -260,7 +260,7 @@ public class GestionPeticiones {
                 + "Content-Length: " + contenido.length() + "\n"
                 + "Set-Cookie: sessionId=" + sessionId + "; Path=/;\n"
                 + "Content-Type: text/html; charset=UTF-8\n"
-                + "\n" // Línea vacía
+                + "\n" // Lí­nea vací­a
                 + contenido; // Cuerpo
     }
 
