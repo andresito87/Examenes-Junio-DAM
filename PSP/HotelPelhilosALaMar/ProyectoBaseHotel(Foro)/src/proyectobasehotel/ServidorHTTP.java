@@ -98,7 +98,6 @@ class HiloCliente extends Thread {
                 + "Content-Length: " + contenido.length() + "\n"
                 + "\n"
                 + contenido);
-        writer.flush();
     }
 
     private int obtenerContent(BufferedReader entrada) throws IOException {
