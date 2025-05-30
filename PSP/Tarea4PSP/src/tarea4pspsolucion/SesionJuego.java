@@ -1,9 +1,5 @@
 package tarea4pspsolucion;
 
-/**
- *
- * @author LuisRosillo <>
- */
 import java.util.Random;
 
 public class SesionJuego {

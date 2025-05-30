@@ -7,10 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.regex.*;
 
-/**
- *
- * @author LuisRosillo <>
- */
 public class GestionPeticiones {
 
     private final ConcurrentHashMap<String, SesionJuego> sesiones;
@@ -71,7 +67,6 @@ public class GestionPeticiones {
                 } else {
                     respuestaHTML = "<p>Error en el formato del email o la contrasena.</p>";
                 }
-
             }
         } catch (Exception e) {
             respuestaHTML = "<p>Error procesando tu petición. Intenta de nuevo.  </p>";
@@ -263,5 +258,4 @@ public class GestionPeticiones {
                 + "\n" // Lí­nea vací­a
                 + contenido; // Cuerpo
     }
-
 }

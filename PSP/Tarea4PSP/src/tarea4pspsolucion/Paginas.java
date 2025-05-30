@@ -1,4 +1,3 @@
-// ---------------------- Clase Paginas ----------------------
 package tarea4pspsolucion;
 
 import java.util.Random;

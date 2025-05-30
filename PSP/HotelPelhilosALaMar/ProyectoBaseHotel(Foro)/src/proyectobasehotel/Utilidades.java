@@ -34,6 +34,13 @@ public class Utilidades {
         return new String(cipher.doFinal(datosCifrados));
     }
 
+    private static byte[] procesar(byte[] datos, int modo) throws Exception {
+        Cipher cipher = Cipher.getInstance(ALGORITMO);
+        SecretKey clave = new SecretKeySpec(CLAVE_AES, ALGORITMO);
+        cipher.init(modo, clave); // 
+        return cipher.doFinal(datos);
+    }
+
     private static void escribirArchivoCifrado(String file, int cantidad) throws Exception {
         try {
             semaforo.onWriter(); // Bloqueo de escritura
@@ -76,7 +83,7 @@ public class Utilidades {
 
             } else {
                 escribirArchivoCifrado(archivo, cantidad);
-                
+
                 System.out.println("Fichero: " + archivo + " - Total reservas:" + cantidad);
             }
 

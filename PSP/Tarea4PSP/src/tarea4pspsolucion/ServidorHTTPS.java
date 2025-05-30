@@ -1,9 +1,5 @@
 package tarea4pspsolucion;
 
-/**
- *
- * @author LuisRosillo <>
- */
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -34,8 +30,8 @@ public class ServidorHTTPS {
 
     public static void main(String[] args) throws Exception {
 
-        // Establecemos el fichero que vamos a utilizar y que se vayan añadiendo las
-        // lineas
+        // Establecemos el fichero que vamos a utilizar y que 
+        // se vayan añadiendo las lineas
         fh = new FileHandler("logErrores.txt", true);
 
         // Utilizamos el método de configuración de la clase Log
@@ -66,7 +62,8 @@ public class ServidorHTTPS {
             // Acepta conexiones de clientes
             SSLSocket socketSsl = (SSLSocket) socketServidorSsl.accept();
             System.out.println("Cliente conectado");
-            Thread hiloCliente = new HiloCliente(socketSsl); // Crea un nuevo hilo para manejar al cliente.
+            // Crea un nuevo hilo para manejar al cliente.
+            Thread hiloCliente = new HiloCliente(socketSsl);
             hiloCliente.start(); // Inicia el hilo.
         }
     }
@@ -86,8 +83,9 @@ public class ServidorHTTPS {
 
         @Override
         public void run() {
-            try (
-                    BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream())); PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true, StandardCharsets.UTF_8)) {
+            try (BufferedReader entrada = new BufferedReader(
+                            new InputStreamReader(cliente.getInputStream())); 
+                    PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true, StandardCharsets.UTF_8)) {
                 // Lee la primera lí­nea de la petición HTTP.
                 String peticion = entrada.readLine();
                 if (peticion == null || (!peticion.startsWith("GET") && !peticion.startsWith("POST"))) {
@@ -144,7 +142,6 @@ public class ServidorHTTPS {
             } catch (IOException e) {
                 //e.printStackTrace(); // Muestra errores en la consola.
             }
-
         }
 
         private String[] obtenerMetadatos(BufferedReader entrada) throws IOException {
@@ -171,6 +168,5 @@ public class ServidorHTTPS {
             metadatos[1] = contentLength;
             return metadatos;
         }
-
     }
 }

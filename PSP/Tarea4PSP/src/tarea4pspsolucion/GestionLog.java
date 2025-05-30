@@ -8,10 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
-/**
- *
- * @author LuisRosillo <>
- */
 public class GestionLog {
 
     public static void configurarLog(FileHandler fh, Logger logger) throws SecurityException {

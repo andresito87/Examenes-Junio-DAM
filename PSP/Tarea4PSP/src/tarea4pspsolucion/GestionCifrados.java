@@ -1,4 +1,3 @@
-
 package tarea4pspsolucion;
 
 import java.io.File;
@@ -10,23 +9,12 @@ import java.nio.file.StandardOpenOption;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- *
- * @author LuisRosillo <>
- */
 public class GestionCifrados {
 
     private static final File BD_USUARIOS = new File("usuarios.txt");
     private static final String CLAVE = "1234567890123456";
     private static final String ALGORITMO = "AES";
 
-    /**
-     * Método para cifrar datos del fichero
-     * 
-     * @param datos
-     * @return
-     * @throws Exception
-     */
     private static byte[] cifrar(String datos) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITMO);
         SecretKeySpec keySpec = new SecretKeySpec(CLAVE.getBytes(), ALGORITMO);
@@ -34,13 +22,6 @@ public class GestionCifrados {
         return cipher.doFinal(datos.getBytes());
     }
 
-    /**
-     * Método para descifrar datos del fichero
-     * 
-     * @param datosCifrados
-     * @return String
-     * @throws Exception
-     */
     private static String descifrar(byte[] datosCifrados) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITMO);
         SecretKeySpec keySpec = new SecretKeySpec(CLAVE.getBytes(), ALGORITMO);
@@ -48,12 +29,6 @@ public class GestionCifrados {
         return new String(cipher.doFinal(datosCifrados));
     }
 
-    /**
-     * Método para obtener el listado de usuario del fichero usuarios.txt
-     * 
-     * @return String
-     * @throws Exception
-     */
     public static String obtenerUsuarios() throws IOException, Exception {
         try {
             Path path = Paths.get(BD_USUARIOS.getPath());
@@ -73,13 +48,6 @@ public class GestionCifrados {
 
     }
 
-    /**
-     * Método para insertar un nuevo usuario en usuarios.txt
-     * 
-     * @param listado
-     * @return boolean
-     * @throws Exception
-     */
     public static boolean escribirUsuarios(String listado) throws Exception {
         try {
             Path path = Paths.get(BD_USUARIOS.getPath());

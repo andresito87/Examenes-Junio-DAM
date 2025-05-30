@@ -2,23 +2,11 @@ package tarea4pspsolucion;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-/**
- *
- * @author LuisRosillo <>
- */
 public class GestionUsuarios {
 
     private static Semaforo semaforo = new Semaforo();
 
-    /**
-     * Método sincronizado para comprobar si existe la dupla usuario:contraseña
-     *
-     * @param email
-     * @param password
-     * @return boolean
-     * @throws Exception
-     */
-    public static synchronized boolean comprobarLogin(String email, String password) throws Exception {
+    public static boolean comprobarLogin(String email, String password) throws Exception {
 
         boolean login = false;
         boolean encontrado = false;
@@ -37,8 +25,7 @@ public class GestionUsuarios {
                 String[] partes = usuario.split(":");
                 // Comprobamos si este usuario coincide
                 if (email.equals(partes[0])) {
-                    encontrado = true; // Como no puede existir dos correos iguales, salimos del bucle después de
-                    // comprobar la constraseña
+                    encontrado = true; // no puede existir dos correos iguales
                     if (BCrypt.checkpw(password, partes[1])) {
                         login = true;
                     }
@@ -48,18 +35,9 @@ public class GestionUsuarios {
 
         semaforo.lecturaFinalizada();
         return login;
-
     }
 
-    /**
-     * Método sincronizado para escribir la dupla usuario:contraseña
-     *
-     * @param email
-     * @param password
-     * @return boolean
-     * @throws Exception
-     */
-    public static synchronized boolean realizarRegistro(String email, String password) throws Exception {
+    public static boolean realizarRegistro(String email, String password) throws Exception {
 
         semaforo.accesoEscribir();
 
@@ -75,5 +53,4 @@ public class GestionUsuarios {
 
         return registro;
     }
-
 }
