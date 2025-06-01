@@ -4,29 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author andres
- */
 public class SimuladorClientes {
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        List<Thread> hilos = new ArrayList<>();;
+        List<Thread> hilos = new ArrayList<>();
         Lavanderia lavanderia = new Lavanderia();
         int opcion = 0;
         int contadorClientes = 0;
         boolean lavanderiaCerrada = false;
 
         // El menu solo se muestra una vez para no colapsar la terminal con demasiados mensajes
-        System.out.println("\nMenú:");
+        System.out.println("\nBienvenid@ a la lavandería. Elige una de las opciones:");
         System.out.println("1. Simular peticiones clientes");
         System.out.println("2. Mostrar estado de lavandería");
         System.out.println("3. Cerrar lavandería");
         System.out.print("Seleccione una opción: ");
 
-        while (opcion != 3 || !lavanderiaCerrada) {
+        do {
 
             opcion = scanner.nextInt();
 
@@ -36,7 +32,7 @@ public class SimuladorClientes {
                         // Con la lavanderia cerrada no vamos a permitir más clientes
                         System.out.println("La lavandería está cerrada. No se pueden simular más clientes.");
                     } else {
-                        // Con la lavanderia abierta permitimos la entra a los clientes
+                        // Con la lavanderia abierta permitimos la entrada a los clientes
                         System.out.print("¿Cuántos clientes quieres simular?: ");
                         int cantidadClientes = scanner.nextInt();
 
@@ -47,7 +43,6 @@ public class SimuladorClientes {
                             hilos.add(hilo);
                             hilo.start();
                         }
-
                     }
                 }
                 case 2 -> {
@@ -72,7 +67,7 @@ public class SimuladorClientes {
                 default ->
                     System.out.println("Opción inválida");
             }
-        }
+        } while (opcion != 3 || !lavanderiaCerrada);
 
         // Mensaje final
         System.out.println("Todos los clientes han terminado. Lavandería cerrada.");

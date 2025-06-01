@@ -1,9 +1,5 @@
 package ejercicio_lavanderia_hilos;
 
-/**
- *
- * @author andres
- */
 public class Cliente implements Runnable {
 
     private final String nombre;
@@ -29,5 +25,4 @@ public class Cliente implements Runnable {
             System.out.println(ex.getMessage());
         }
     }
-
 }

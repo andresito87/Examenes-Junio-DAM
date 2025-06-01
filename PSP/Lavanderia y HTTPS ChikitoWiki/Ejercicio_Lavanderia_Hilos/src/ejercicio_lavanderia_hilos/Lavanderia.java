@@ -1,9 +1,5 @@
 package ejercicio_lavanderia_hilos;
 
-/**
- *
- * @author andres
- */
 public class Lavanderia {
 
     private final String RESET = "\u001B[0m";
@@ -21,7 +17,7 @@ public class Lavanderia {
     }
 
     public synchronized void lavarRopa(String nombreCliente) throws InterruptedException {
-        while (lavadorasLibres <= 0) {
+        while (lavadorasLibres == 0) {
             wait();
         }
 
@@ -37,12 +33,11 @@ public class Lavanderia {
         notifyAll();
     }
 
-    public void mostrarEstado() {
+    public synchronized void mostrarEstado() {
         System.out.println(GREEN + "****** Estado de la Lavandería ******");
         System.out.println(GREEN + "Clientes atendidos: " + clientesAtendidos);
         System.out.println(GREEN + "Ganancia total: " + gananciaTotal + " €");
         System.out.println(GREEN + "Lavadoras disponibles: " + lavadorasLibres);
         System.out.println(GREEN + "Lavadoras en uso: " + (CANTIDAD_LAVADORAS - lavadorasLibres) + RESET);
     }
-
 }
