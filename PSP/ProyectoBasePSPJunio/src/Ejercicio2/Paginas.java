@@ -1,0 +1,88 @@
+// ---------------------- Clase Paginas ----------------------
+package Ejercicio2;
+
+/**
+ * Clase que almacena los HTMLs que devolverá como respuesta nuestro servidor al
+ * cliente, el navegador web
+ *
+ * @author Andres Samuel Podadera González
+ */
+public class Paginas {
+
+    public static final String html_noEncontrado = "<html><head><title>Error 404</title><link rel=icon href=data:,/></head><body>"
+            + "<h1>404 Pagina No Encontrada</h1>"
+            + "<p>La pagina solicitada no existe.</p>"
+            + "</body></html>";
+
+    public static final String html_tienda = "<!DOCTYPE html>"
+            + "<html lang='es'>"
+            + "<head>"
+            + "    <meta charset='UTF-8'>"
+            + "    <link rel=icon href=data:,/>"
+            + "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+            + "    <title>Tienda de Alimentos - Servidor</title>"
+            + "    <style>"
+            + "        body {"
+            + "            font-family: 'Arial', sans-serif;"
+            + "            background-color: #f9f9f9;"
+            + "            margin: 0;"
+            + "            padding: 0;"
+            + "        }"
+            + "        header {"
+            + "            background-color: #ff6f61;"
+            + "            color: white;"
+            + "            padding: 20px;"
+            + "            text-align: center;"
+            + "        }"
+            + "        .container {"
+            + "            max-width: 400px;"
+            + "            margin: 50px auto;"
+            + "            background-color: white;"
+            + "            padding: 20px;"
+            + "            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+            + "            border-radius: 8px;"
+            + "        }"
+            + "        label {"
+            + "            font-weight: bold;"
+            + "        }"
+            + "        input[type='number'] {"
+            + "            width: 100%;"
+            + "            padding: 10px;"
+            + "            margin-top: 5px;"
+            + "            margin-bottom: 10px;"
+            + "            border: 1px solid #ddd;"
+            + "            border-radius: 4px;"
+            + "            font-size: 16px;"
+            + "        }"
+            + "        button {"
+            + "            width: 100%;"
+            + "            padding: 10px;"
+            + "            background-color: #ff6f61;"
+            + "            border: none;"
+            + "            color: white;"
+            + "            font-size: 16px;"
+            + "            border-radius: 4px;"
+            + "            cursor: pointer;"
+            + "            transition: background-color 0.3s ease;"
+            + "        }"
+            + "        button:hover {"
+            + "            background-color: #ff3b2e;"
+            + "        }"
+            + "    </style>"
+            + "</head>"
+            + "<body>"
+            + "    <header>"
+            + "        <h1>Tienda de Alimentos</h1>"
+            + "        <p>Servidor de registro de ventas</p>"
+            + "    </header>"
+            + "    <div class='container'>"
+            + "        <form action='/' method='POST'>"
+            + "            <label for='amount'>Cantidad ganada:</label>"
+            + "            <input type='number' id='cantidad' name='cantidad' placeholder='Ingrese la cantidad' min='0' required autofocus>"
+            + "            <button type='submit'>Registrar</button>"
+            + "        </form>"
+            + "    </div>"
+            + "</body>"
+            + "</html>";
+
+}
