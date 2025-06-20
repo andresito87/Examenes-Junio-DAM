@@ -86,6 +86,7 @@ class HiloCliente extends Thread {
                     respuesta = construirRespuesta(404, Paginas.html_noEncontrado);
                 }
                 salida.println(respuesta); // enviar respuesta
+                cliente.close();
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
